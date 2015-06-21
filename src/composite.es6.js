@@ -1,6 +1,76 @@
-class Composite {
-	constructor(geometry, materials) {
+/* jshint esnext: true */
+
+// using symols to make protected members
+let NAMES = new WeakMap(),
+	PRICES = new WeakMap(),
+	POWER = new WeakMap();
+
+export class Equipment {
+	constructor(name,price,power) {
+
+		// should be protected
+		this._equipment = [];
 		
-		//...
+		// private
+		this._name = NAMES.set(this,name);
+		this._price = PRICES.set(this,price);
+		this._power = POWER.set(this,power);
+		
+	}
+
+	name(){
+		return NAMES.get(this);
+	}
+
+	power(){
+		return POWER.get(this);
+	}
+
+	netPrice(){
+		return PRICES.get(this);
+	}
+
+	discountPrice(){
+		return this.discountPrice;
+	}
+
+	add(equipment){
+		this._equipment.push(equipment);
+	}
+
+	remove(equipment){
+		this._equipment.splice(this._equipment.indexOf(equipment),1);
+	}
+
+	
+}
+
+class CompositeEquipment extends Equipment {
+	constructor(name,price,power){
+
+	}
+
+	netPrice(){
+
+		let total = 0;
+
+		for(var equipment of this._equipment){
+			total += equipment.netPrice();
+		}
+
+		return total;
+	}
+
+}
+
+class FloppyDisk extends Equipment {
+	constructor(){
+
+	}
+}
+
+class Chassis extends CompositeEquipment {
+	constructor(){
+		
 	}
 }
