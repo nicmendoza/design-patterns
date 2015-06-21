@@ -46,7 +46,7 @@ var Equipment = (function () {
 	}, {
 		key: "discountPrice",
 		value: function discountPrice() {
-			return this.discountPrice;
+			return this.netPrice();
 		}
 	}, {
 		key: "add",
@@ -72,7 +72,7 @@ var CompositeEquipment = (function (_Equipment) {
 		}
 
 		_get(Object.getPrototypeOf(CompositeEquipment.prototype), "constructor", this).apply(this, args);
-
+		// store price to be included when netPrice calculated
 		this._basePrice = args[1] || 0;
 	}
 
@@ -116,18 +116,34 @@ var CompositeEquipment = (function (_Equipment) {
 	return CompositeEquipment;
 })(Equipment);
 
-var FloppyDisk = (function (_Equipment2) {
-	function FloppyDisk() {
-		_classCallCheck(this, FloppyDisk);
+var Card = (function (_Equipment2) {
+	function Card() {
+		_classCallCheck(this, Card);
 
 		for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
 			args[_key2] = arguments[_key2];
 		}
 
+		_get(Object.getPrototypeOf(Card.prototype), "constructor", this).apply(this, args);
+	}
+
+	_inherits(Card, _Equipment2);
+
+	return Card;
+})(Equipment);
+
+var FloppyDisk = (function (_Equipment3) {
+	function FloppyDisk() {
+		_classCallCheck(this, FloppyDisk);
+
+		for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+			args[_key3] = arguments[_key3];
+		}
+
 		_get(Object.getPrototypeOf(FloppyDisk.prototype), "constructor", this).apply(this, args);
 	}
 
-	_inherits(FloppyDisk, _Equipment2);
+	_inherits(FloppyDisk, _Equipment3);
 
 	return FloppyDisk;
 })(Equipment);
@@ -136,8 +152,8 @@ var Chassis = (function (_CompositeEquipment) {
 	function Chassis() {
 		_classCallCheck(this, Chassis);
 
-		for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-			args[_key3] = arguments[_key3];
+		for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+			args[_key4] = arguments[_key4];
 		}
 
 		_get(Object.getPrototypeOf(Chassis.prototype), "constructor", this).apply(this, args);
@@ -146,5 +162,37 @@ var Chassis = (function (_CompositeEquipment) {
 	_inherits(Chassis, _CompositeEquipment);
 
 	return Chassis;
+})(CompositeEquipment);
+
+var Cabinet = (function (_CompositeEquipment2) {
+	function Cabinet() {
+		_classCallCheck(this, Cabinet);
+
+		for (var _len5 = arguments.length, args = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+			args[_key5] = arguments[_key5];
+		}
+
+		_get(Object.getPrototypeOf(Cabinet.prototype), "constructor", this).apply(this, args);
+	}
+
+	_inherits(Cabinet, _CompositeEquipment2);
+
+	return Cabinet;
+})(CompositeEquipment);
+
+var Bus = (function (_CompositeEquipment3) {
+	function Bus() {
+		_classCallCheck(this, Bus);
+
+		for (var _len6 = arguments.length, args = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+			args[_key6] = arguments[_key6];
+		}
+
+		_get(Object.getPrototypeOf(Bus.prototype), "constructor", this).apply(this, args);
+	}
+
+	_inherits(Bus, _CompositeEquipment3);
+
+	return Bus;
 })(CompositeEquipment);
 //# sourceMappingURL=composite.js.map

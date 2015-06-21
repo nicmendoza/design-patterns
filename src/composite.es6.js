@@ -65,6 +65,12 @@ class CompositeEquipment extends Equipment {
 
 }
 
+class Card extends Equipment {
+	constructor(...args){
+		super(...args);
+	}
+}
+
 class FloppyDisk extends Equipment {
 	constructor(...args){
 		super(...args);
@@ -72,6 +78,18 @@ class FloppyDisk extends Equipment {
 }
 
 class Chassis extends CompositeEquipment {
+	constructor(...args){
+		super(...args);
+	}
+}
+
+class Cabinet extends CompositeEquipment {
+	constructor(...args){
+		super(...args);
+	}
+}
+
+class Bus extends CompositeEquipment {
 	constructor(...args){
 		super(...args);
 	}
