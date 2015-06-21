@@ -1,0 +1,1 @@
+#An ES6 Implementation of the Gang of Four's Design Patterns

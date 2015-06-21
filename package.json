@@ -1,0 +1,31 @@
+{
+  "name": "design-patterns",
+  "version": "1.0.0",
+  "description": "A javascript implementation of the Gang of Four's design pattern examples in javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt karma"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicmendoza/design-patterns.git"
+  },
+  "keywords": [
+    "design",
+    "patterns"
+  ],
+  "author": "Nic Mendoza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicmendoza/design-patterns/issues"
+  },
+  "homepage": "https://github.com/nicmendoza/design-patterns",
+  "devDependencies": {
+    "grunt-babel": "^5.0.1",
+    "grunt-cli": "^0.1.13",
+    "grunt-task-loader": "^0.6.0",
+    "jasmine-core": "^2.3.4",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-jasmine": "^0.3.5"
+  }
+}
