@@ -1,0 +1,3 @@
+#An ES6 Implementation of the Gang of Four's Design Patterns
+
+<%= composite_es6_js.replace(/\n/g,'\n    ') %>

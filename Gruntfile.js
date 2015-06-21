@@ -1,6 +1,10 @@
+var fs = require('fs');
+
 module.exports = function(grunt) {
 
-	require('grunt-task-loader')(grunt);
+	require('grunt-task-loader')(grunt, {
+		customTasksDir: 'tasks'
+	});
 
 	grunt.initConfig({
 		'karma': {
@@ -22,6 +26,27 @@ module.exports = function(grunt) {
 					dest: 'src',
 					ext: '.js'
 				}]
+			}
+		},
+
+		'template' : {
+			readme: {
+				options: {
+					data: (function(){
+						return fs.readdirSync('src').reduce(function(accumulator,current){
+
+							var key = current.replace(/\./g,'_');
+
+							console.log(key);
+
+							accumulator[key] = fs.readFileSync('src/' + current, {encoding: 'utf8'});
+							return accumulator;
+						},{});
+					})()
+				},
+				files: {
+					'Readme.md' : ['Readme.md.template']
+				}
 			}
 		}
 	});

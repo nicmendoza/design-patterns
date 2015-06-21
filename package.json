@@ -24,6 +24,7 @@
     "grunt-babel": "^5.0.1",
     "grunt-cli": "^0.1.13",
     "grunt-task-loader": "^0.6.0",
+    "grunt-template": "^0.2.3",
     "jasmine-core": "^2.3.4",
     "karma-chrome-launcher": "^0.1.12",
     "karma-jasmine": "^0.3.5"
