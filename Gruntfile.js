@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 					expand: true,
 					cwd: 'src',
 					src: ['**/*.es6.js'],
-					dest: 'dist',
+					dest: 'src',
 					ext: '.js'
 				}]
 			}

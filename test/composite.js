@@ -1,1 +1,1 @@
-new Composite();
+new CompositeEquipment();

@@ -7,13 +7,14 @@ module.exports = function (config) {
 
 	// list of files / patterns to load in the browser
 	files: [
-		{ pattern: 'dist/**/*.js', served: true, included: true },
+		{ pattern: 'src/**/*.js', served: true, included: true },
+		{ pattern: 'src/**/*.map', served: true, included: false },
 		{ pattern: 'test/**/*.js', served: true, included: true }
 	],
 
 	// list of files to exclude
 	exclude: [
-		//'client/main.js'
+		'**/*.es6.js'
 	],
 
 	preprocessors: {

@@ -5,7 +5,7 @@ let NAMES = new WeakMap(),
 	PRICES = new WeakMap(),
 	POWER = new WeakMap();
 
-export class Equipment {
+class Equipment {
 	constructor(name,price,power) {
 
 		// should be protected
@@ -31,7 +31,7 @@ export class Equipment {
 	}
 
 	discountPrice(){
-		return this.discountPrice;
+		return this.netPrice();
 	}
 
 	add(equipment){
@@ -46,13 +46,15 @@ export class Equipment {
 }
 
 class CompositeEquipment extends Equipment {
-	constructor(name,price,power){
-
+	constructor(...args){
+		super(...args);
+		// store price to be included when netPrice calculated
+		this._basePrice = args[1] || 0;
 	}
 
 	netPrice(){
 
-		let total = 0;
+		let total = this._basePrice;
 
 		for(var equipment of this._equipment){
 			total += equipment.netPrice();
@@ -64,13 +66,13 @@ class CompositeEquipment extends Equipment {
 }
 
 class FloppyDisk extends Equipment {
-	constructor(){
-
+	constructor(...args){
+		super(...args);
 	}
 }
 
 class Chassis extends CompositeEquipment {
-	constructor(){
-		
+	constructor(...args){
+		super(...args);
 	}
 }
